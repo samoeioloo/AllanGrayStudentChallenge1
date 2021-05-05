@@ -97,11 +97,16 @@ const findEmptyPos = () => {
     }
 }
 
-const checkInvalid = (x, y, i, j) =>{//
-//
-//Please update this function - insert code here to check if a move is invalid
+const checkInvalid = (x, y, i, j) =>{
+// invalid moves : boundaries!
+if (i+j === 0 || i === j || x+j < 0 || y+i < 0 || x+j > game[0].length-1 || y+i > game.length=1  )
+{
+  return true;
+}
+else {
+  return false;
+}
 
-//return false;}
 
 
 const getNeighbour = pos => { //recalculates the new numbers that will be adjacent in a new game
