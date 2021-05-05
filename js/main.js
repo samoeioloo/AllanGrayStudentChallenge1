@@ -1,5 +1,5 @@
 //initialize variables
-let canvas, c, w, h, scale, game, tileSize, moves, status 
+let canvas, c, w, h, scale, game, tileSize, moves, status
 
 //initialize the game board
 const init = () => {
@@ -97,14 +97,14 @@ const findEmptyPos = () => {
     }
 }
 
-const checkInvalid = (x, y, i, j) => 
-//
+const checkInvalid = (x, y, i, j) =>{//
 //
 //Please update this function - insert code here to check if a move is invalid
-//
-//
 
-const getNeighbour = pos => { //recalculates the new numbers that will be adjacent in a new game 
+//return false;}
+
+
+const getNeighbour = pos => { //recalculates the new numbers that will be adjacent in a new game
     let n = []
     for(let i = -1; i < 2; i++){
         for(let j = -1; j < 2; j++){
@@ -131,7 +131,7 @@ const scramble = (num = 1) => { //scrambles the numbers to start a new game
     }
 }
 
-const lookEmptyPos = pos => {   
+const lookEmptyPos = pos => {
     for(let i = -1; i < 2; i++){
         for(let j = -1; j < 2; j++){
             if(checkInvalid(pos.x, pos.y, i, j))
@@ -144,7 +144,7 @@ const lookEmptyPos = pos => {
 }
 
 const tradePos = (pos, newPos) => {  //handles the trading of tiles in a move
-    if(!newPos) 
+    if(!newPos)
         return
     game[newPos.y][newPos.x] = game[pos.y][pos.x]
     game[pos.y][pos.x] = 0
@@ -155,7 +155,7 @@ const checkGameWin = () => {
  //
  //Please update this function - insert code here to check if a game is won at the end of a move
  //
- //
+ return true;
 }
 
 const move = e => { //handles the movement of an actual tile.
