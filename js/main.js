@@ -97,6 +97,7 @@ const findEmptyPos = () => {
     }
 }
 
+// determines if move is valid or not
 const checkInvalid = (x, y, i, j) =>{
 // invalid moves : boundaries!
 if (i+j === 0 || i === j || x+j < 0 || y+i < 0 || x+j > game[0].length-1 || y+i > game.length=1  )
@@ -139,7 +140,7 @@ const scramble = (num = 1) => { //scrambles the numbers to start a new game
 const lookEmptyPos = pos => {
     for(let i = -1; i < 2; i++){
         for(let j = -1; j < 2; j++){
-            if(checkInvalid(pos.x, pos.y, i, j))
+            if(checkInvalid(pos.x, pos.y, i, j)) // nb!
                 continue
             if(!game[pos.y+i][pos.x+j])
                 return {x: pos.x+j, y: pos.y+i}
@@ -160,7 +161,16 @@ const checkGameWin = () => {
  //
  //Please update this function - insert code here to check if a game is won at the end of a move
  //
- return true;
+ for(let i = 0; i < game.length * game[0].length - 1; i++)
+ {
+  x = i % game[0].length
+  y = Math.floor( i / game[0].length )
+  if(game[y][x] != i+1)
+  {
+    return false
+  }
+  }
+  return true
 }
 
 const move = e => { //handles the movement of an actual tile.
